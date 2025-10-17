@@ -27,3 +27,27 @@ class UMKM(models.Model):
 
     def __str__(self):
         return self.nama_usaha
+    
+class StrukturOrganisasi(models.Model):
+    nama = models.CharField(max_length=100)
+    jabatan = models.CharField(max_length=100)
+    nip = models.CharField(max_length=20, blank=True, null=True)
+    foto = models.ImageField(upload_to='struktur_organisasi/', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.nama} - {self.jabatan}"
+
+class LingkunganRT(models.Model):
+    nama_lingkungan = models.CharField(max_length=100)
+    nomor_rt = models.CharField(max_length=5)
+    nama_ketua_rt = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"RT {self.nomor_rt} - {self.nama_lingkungan}"
+
+class Galeri(models.Model):
+    keterangan = models.CharField(max_length=255)
+    gambar = models.ImageField(upload_to='galeri/')
+
+    def __str__(self):
+        return self.keterangan

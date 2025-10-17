@@ -1,7 +1,9 @@
 # profil/admin.py
 
 from django.contrib import admin
-from .models import Profil  # Impor model Profil yang sudah kita buat
+from .models import Profil, StrukturOrganisasi, LingkunganRT, Galeri
 
-# Daftarkan model Profil agar muncul di halaman admin
 admin.site.register(Profil)
+admin.site.register(StrukturOrganisasi)
+admin.site.register(LingkunganRT)
+admin.site.register(Galeri)

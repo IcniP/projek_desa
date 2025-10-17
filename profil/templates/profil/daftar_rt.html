@@ -1,0 +1,22 @@
+{% extends 'profil/base.html' %}
+{% block content %}
+    <h1>Daftar Lingkungan dan RT</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Lingkungan</th>
+                <th>Nomor RT</th>
+                <th>Ketua RT</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rt in semua_rt %}
+            <tr>
+                <td>{{ rt.nama_lingkungan }}</td>
+                <td>{{ rt.nomor_rt }}</td>
+                <td>{{ rt.nama_ketua_rt }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
