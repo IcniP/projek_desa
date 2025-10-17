@@ -1,0 +1,12 @@
+{% extends 'profil/base.html' %}
+
+{% block content %}
+    {% for profil_item in semua_profil %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h2 class="card-title">{{ profil_item.judul }}</h2>
+                <p class="card-text">{{ profil_item.konten }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

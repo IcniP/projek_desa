@@ -1,0 +1,19 @@
+{% extends 'profil/base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">Direktori UMKM Desa</h1>
+    <div class="row">
+        {% for umkm in semua_umkm %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="{{ umkm.foto_produk.url }}" class="card-img-top" alt="{{ umkm.nama_usaha }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ umkm.nama_usaha }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Pemilik: {{ umkm.nama_pemilik }}</h6>
+                        <p class="card-text">{{ umkm.deskripsi }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
