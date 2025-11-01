@@ -1,11 +1,26 @@
+@font-face {
+  font-family: 'OpenSans';
+  src: url('/assets/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body{
     margin: 0px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'OpenSans', Calibri, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+.main-content-wrapper {
+   
+    flex-grow: 1; 
 }
 .navbar{
     background-color: brown;
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -146,19 +161,23 @@ body{
     padding-left: 20px;
     color: #222;
 }
-.footer{
+footer{
+    
     text-transform: uppercase;
     background-color: brown;
     color: white;
     padding: 20px;
     justify-content: space-between;
     display: flex;
+    /* Footer sekarang menjadi bagian akhir dari flex-column body */
+    width: 100%; /* Pastikan lebar 100% */
 }
-.footer h1{
+
+footer h1{
     font-size: 16px;
     margin: 0px;
 }
-.footer p{
+footer p{
     margin: 10px 0 0 0;
     font-size: 14px;
 }

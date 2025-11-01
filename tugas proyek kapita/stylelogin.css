@@ -1,0 +1,96 @@
+/* Styling Umum */
+body {
+    /* Background Hitam Pekat */
+    background-color: brown; 
+    /* Font Putih untuk Kontras Tinggi */
+    color: black; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container Login di Tengah */
+.login-container {
+    width: 90%;
+    max-width: 380px; /* Lebar Maksimal Mirip Contoh */
+    padding: 40px;
+    text-align: center;
+    /* Efek Glow/Border Tipis Putih (Opsional: untuk menonjolkan) */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: white;
+    border-radius: 8px; /* Sudut sedikit melengkung */
+}
+
+/* Judul/Logo */
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    /* Background input gelap, text putih untuk kontras */
+    background-color: rgb(222, 220, 220); 
+    color: #fff;
+    border: 1px solid #333; /* Border tipis abu-abu */
+    border-radius: 4px;
+    font-size: 1.1em;
+    box-sizing: border-box; /* Penting agar padding tidak menambah lebar */
+    transition: border-color 0.3s;
+}
+
+/* Efek saat input difokuskan */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #fff; /* Border menjadi putih terang saat fokus */
+    outline: none; /* Hilangkan outline default browser */
+}
+
+/* Tombol Login */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    /* Kontras: Warna cerah di atas background gelap */
+    background-color: rgb(222, 220, 220); 
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    letter-spacing: 1px;
+}
+
+/* Efek Hover Tombol */
+.login-button:hover {
+    background-color: #ccc; /* Sedikit lebih gelap saat di-hover */
+}
+
+/* Teks Lupa Password */
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+    color: black; 
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #fff; /* Berubah menjadi putih saat di-hover */
+}
