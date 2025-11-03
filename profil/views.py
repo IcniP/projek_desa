@@ -1,13 +1,17 @@
 # profil/views.py
-from django.shortcuts import render
+from django.shortcuts import render 
 from .models import Profil, StrukturOrganisasi, LingkunganRT, Galeri
+from berita.models import Berita
 
 def index(request):
     semua_profil = Profil.objects.all()
+    berita_terbaru = Berita.objects.all()[:3]
     context = {
         'semua_profil': semua_profil,
+        'berita_terbaru': berita_terbaru,
     }
     return render(request, 'profil/index.html', context)
+
 def detail_profil(request, pk):
     profil_obj = Profil.objects.get(pk=pk)
     context = {'profil': profil_obj}

@@ -1,0 +1,35 @@
+{% extends 'profil/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/berita_detail.css' %}">
+{% endblock %}
+
+{% block title %}{{ berita.judul }}{% endblock %}
+
+{% block content %}
+<div class="berita-container">
+
+    <div class="main-article">
+        <h1>{{ berita.judul }}</h1>
+        <img src="{{ berita.gambar.url }}" alt="{{ berita.judul }}">
+        <div class="article-content">
+            {{ berita.isi|linebreaks }}
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <h3>Berita Lainnya</h3>
+        <ul class="sidebar-list">
+            {% for item in berita_lainnya %}
+            <li>
+                <a href="{% url 'berita_detail' pk=item.pk %}">{{ item.judul }}</a>
+            </li>
+            {% empty %}
+            <li>Tidak ada berita lainnya.</li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+</div>
+{% endblock %}

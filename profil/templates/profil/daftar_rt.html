@@ -1,22 +1,37 @@
 {% extends 'profil/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/daftarlingkungan.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h1>Daftar Lingkungan dan RT</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Lingkungan</th>
-                <th>Nomor RT</th>
-                <th>Ketua RT</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for rt in semua_rt %}
-            <tr>
-                <td>{{ rt.nama_lingkungan }}</td>
-                <td>{{ rt.nomor_rt }}</td>
-                <td>{{ rt.nama_ketua_rt }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="main-content-wrapper">
+    <div class="main-content">
+        <div class="page-title-container">
+            <h1>Daftar Lingkungan dan RT</h1>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lingkungan</th>
+                        <th>Nomor RT</th>
+                        <th>Ketua RT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rt in semua_rt %}
+                    <tr>
+                        <td>{{ rt.nama_lingkungan }}</td>
+                        <td>{{ rt.nomor_rt }}</td>
+                        <td>{{ rt.nama_ketua_rt }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
