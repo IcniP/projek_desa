@@ -23,34 +23,21 @@
         Berita 
     </h1>
     <hr class="garis">
+
     <div class="card-container">
+        {% for berita in berita_terbaru %}
         <div class="card">
-            <a href="#" class="card-link">
-                <img src="{% static 'assets/windrises.jpg' %}" alt="Berita">
+            <a href="{% url 'berita_detail' pk=berita.pk %}" class="card-link">
+                <img src="{{ berita.gambar.url }}" alt="{{ berita.judul }}">
                 <div class="isiberita">
-                    <h2>Berita 1</h2>
-                    <p>Isi berita...</p>
+                    <h2>{{ berita.judul }}</h2>
+                    <p>{{ berita.isi|truncatewords:15 }}</p>
                 </div>
             </a>
         </div>
-        <div class="card">
-            <a href="#" class="card-link">
-                <img src="{% static 'assets/windrises.jpg' %}" alt="Berita">
-                <div class="isiberita">
-                    <h2>Berita 2</h2>
-                    <p>Isi berita...</p>
-                </div>
-            </a>
-        </div>
-        <div class="card">
-            <a href="#" class="card-link">
-                <img src="{% static 'assets/windrises.jpg' %}" alt="Berita">
-                <div class="isiberita">
-                    <h2>Berita 3</h2>
-                    <p>Isi berita...</p>
-                </div>
-            </a>
-        </div>
+        {% empty %}
+        <p style="color: black; padding-left: 50px;">Belum ada berita yang dipublikasikan.</p>
+        {% endfor %}
     </div>
-</div>
+    </div>
 {% endblock %}
