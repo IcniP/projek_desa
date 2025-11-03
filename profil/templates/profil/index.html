@@ -1,12 +1,56 @@
 {% extends 'profil/base.html' %}
+{% load static %}
 
 {% block content %}
-    {% for profil_item in semua_profil %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h2 class="card-title">{{ profil_item.judul }}</h2>
-                <p class="card-text">{{ profil_item.konten }}</p>
-            </div>
+<div class="Welcome">
+    <h1> Selamat Datang <br>
+        di Way Halim <br>
+        Permai 
+    </h1>
+    <img src="{% static 'assets/windrises.jpg' %}" alt="">
+</div>
+<div class="content">
+    <h2>Way Halim Permai</h2>
+    <p>
+        Kelurahan Way Halim Permai 
+        merupakan salah satu kelurahan yang 
+        berada di Kecamatan Way Halim, Kota Bandar Lampung...
+        (Isi konten statis Anda)
+    </p>
+</div>
+<div class="Berita">
+    <h1>
+        Berita 
+    </h1>
+    <hr class="garis">
+    <div class="card-container">
+        <div class="card">
+            <a href="#" class="card-link">
+                <img src="{% static 'assets/windrises.jpg' %}" alt="Berita">
+                <div class="isiberita">
+                    <h2>Berita 1</h2>
+                    <p>Isi berita...</p>
+                </div>
+            </a>
         </div>
-    {% endfor %}
+        <div class="card">
+            <a href="#" class="card-link">
+                <img src="{% static 'assets/windrises.jpg' %}" alt="Berita">
+                <div class="isiberita">
+                    <h2>Berita 2</h2>
+                    <p>Isi berita...</p>
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a href="#" class="card-link">
+                <img src="{% static 'assets/windrises.jpg' %}" alt="Berita">
+                <div class="isiberita">
+                    <h2>Berita 3</h2>
+                    <p>Isi berita...</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}

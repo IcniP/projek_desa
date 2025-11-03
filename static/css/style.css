@@ -1,0 +1,188 @@
+@font-face {
+  font-family: 'OpenSans';
+  src: url('/assets/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+    margin: 0px;
+    font-family: 'OpenSans', Calibri, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+.main-content-wrapper {
+   
+    flex-grow: 1; 
+}
+.navbar{
+    background-color: brown;
+    padding: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left a{
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    white-space: nowrap;
+    padding-right: 20px;
+}
+.navbar-left a:hover{
+    color:rgb(149, 124, 124);
+}
+.navbar-right a:hover{
+    color: rgb(149, 124, 124);
+}
+.navbar-left img{
+    padding-top: 10px;
+    width: 100px;
+    margin-right: 20px;
+}
+.dropdown{
+    display: inline-block;
+    position: relative;
+}
+.dropbtn{
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: brown;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a:hover{
+    color: rgb(149, 124, 124);
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.navbar-right a{
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+.navbar-right {
+    padding-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.Welcome {
+    display: flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+}
+.Welcome h1{
+    font-size: 70px;
+    padding-top: 100px;
+    padding-left: 55px;
+}
+.Welcome img{
+    width: 50%;
+}
+.content{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding-left: 50%;
+    color: black;
+    background-color: white;
+}
+.content h2{
+    font-size: 50px;
+}
+.content p{
+    font-size: 24px;
+    
+}
+.Berita {
+    
+}
+.Berita h1{
+    padding-left: 50px;
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+.garis{
+    border: none;
+    border-top: 10px solid #222; 
+    margin: 5px 50px 0 50px;
+}
+.card-container{
+    justify-content: space-between;
+    display: flex;
+    gap: 30px; 
+    padding: 50px;
+    background-color: white;
+}
+
+.card {
+    flex: 1;
+    background-color: whitesmoke;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+    display: block;
+}
+
+.card:hover {
+    background-color: rgb(230, 235, 240);
+    transform: scale(1.05);
+}
+.card img{
+    width: 100%;
+}
+.card img:hover{
+    
+}
+.card a{
+    text-decoration: none;
+}
+.isiberita{
+    padding-left: 20px;
+    color: #222;
+}
+footer{
+    
+    text-transform: uppercase;
+    background-color: brown;
+    color: white;
+    padding: 20px;
+    justify-content: space-between;
+    display: flex;
+    /* Footer sekarang menjadi bagian akhir dari flex-column body */
+    width: 100%; /* Pastikan lebar 100% */
+}
+
+footer h1{
+    font-size: 16px;
+    margin: 0px;
+}
+footer p{
+    margin: 10px 0 0 0;
+    font-size: 14px;
+}
+.logo-container{
+    display: flex;
+    gap: 50px;
+    margin-right: 50px;
+}
