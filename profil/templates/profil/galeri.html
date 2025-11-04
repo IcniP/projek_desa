@@ -1,0 +1,44 @@
+{% extends 'profil/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/katalog.css' %}">
+{% endblock %}
+
+{% block title %}Galeri & Arsip Berita{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <div class="page-title-container">
+        <h1>Galeri & Arsip Berita</h1>
+    </div>
+
+    <div class="search-container">
+        <form class="search-form" method="GET" action="{% url 'galeri' %}">
+            <input type="text" name="q" class="search-bar" 
+                   placeholder="Cari berdasarkan judul, bulan (Oktober/10), atau tahun (2025)..." 
+                   value="{{ query|default:'' }}">
+            <button type="submit" class="search-button">Cari</button>
+        </form>
+    </div>
+
+    <div class="katalog-grid">
+
+        {% for berita in semua_berita %}
+        <a href="{% url 'berita_detail' pk=berita.pk %}" class="katalog-card">
+            <img src="{{ berita.gambar.url }}" alt="{{ berita.judul }}" class="katalog-card-img">
+            <div class="katalog-card-content">
+                <h3 class="katalog-card-title">{{ berita.judul }}</h3>
+                <span class="katalog-card-meta">
+                    {{ berita.tanggal_publikasi|date:"d F Y" }}
+                </span>
+                <p class="katalog-card-location">{{ berita.isi|truncatewords:15 }}</p>
+            </div>
+        </a>
+        {% empty %}
+        <p>Tidak ada berita yang ditemukan.</p>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
