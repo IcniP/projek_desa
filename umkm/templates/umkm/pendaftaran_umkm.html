@@ -1,4 +1,47 @@
 {% extends 'profil/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <style>
+        .form-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+        }
+        .form-section h3 {
+            color: brown;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        /* Styling dasar untuk form.as_p */
+        form p {
+            margin-bottom: 15px;
+        }
+        form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        form input[type="text"],
+        form input[type="url"],
+        form textarea,
+        form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Penting! */
+        }
+        .formset-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+{% endblock %}
 
 {% block content %}
     <h1>Formulir Pendaftaran UMKM</h1>
@@ -7,8 +50,39 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        {{ form.as_p }}
+        <div class="form-section">
+            <h3>1. Informasi Utama Toko</h3>
+            {{ form.as_p }}
+        </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Kirim Pendaftaran</button>
+        <div class="form-section">
+            <h3>2. List Produk Anda (Maksimal 5)</h3>
+            <p>Isi produk-produk unggulan yang Anda jual.</p>
+
+            {{ produk_formset.management_form }}
+
+            {% for form in produk_formset %}
+                <div class="formset-item">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="form-section">
+            <h3>3. Galeri Foto Produk (Maksimal 5)</h3>
+            <p>Unggah foto-foto yang menampilkan produk atau suasana toko Anda.</p>
+
+            {{ foto_formset.management_form }}
+
+            {% for form in foto_formset %}
+                <div class="formset-item">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3" style="background-color: darkgreen; color: white; padding: 15px 30px; border: none; border-radius: 8px; font-size: 1.2em; cursor: pointer;">
+            Kirim Pendaftaran
+        </button>
     </form>
 {% endblock %}

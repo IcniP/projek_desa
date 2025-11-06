@@ -3,7 +3,7 @@
 /* Background dan teks utama */
 body {
     
-    padding-top: 60px; 
+    padding-top: 100px; /* DIUBAH DARI 60px MENJADI 100px */
     background-color: #F8F8F8; 
     font-family: 'OpenSans', Calibri, sans-serif;
 }

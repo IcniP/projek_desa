@@ -1,20 +1,21 @@
 @font-face {
-  font-family: 'OpenSans';
-  src: url('/assets/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'OpenSans';
+    /* Path relatif dari file CSS ke folder assets */
+    src: url('../assets/OpenSans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-
+  
 body{
     margin: 0px;
     font-family: 'OpenSans', Calibri, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 60px;
+    /* Ini adalah perbaikan agar judul tidak tertutup navbar */
+    padding-top: 100px; 
 }
 .main-content-wrapper {
-   
     flex-grow: 1; 
 }
 .navbar{
@@ -115,9 +116,6 @@ body{
     font-size: 24px;
     
 }
-.Berita {
-    
-}
 .Berita h1{
     padding-left: 50px;
     font-size: 50px;
@@ -151,9 +149,7 @@ body{
 .card img{
     width: 100%;
 }
-.card img:hover{
-    
-}
+
 .card a{
     text-decoration: none;
 }
@@ -162,15 +158,14 @@ body{
     color: #222;
 }
 footer{
-    
     text-transform: uppercase;
     background-color: brown;
     color: white;
     padding: 20px;
     justify-content: space-between;
     display: flex;
-    /* Footer sekarang menjadi bagian akhir dari flex-column body */
-    width: 100%; /* Pastikan lebar 100% */
+    width: 100%;
+    box-sizing: border-box; /* Menambahkan ini untuk padding */
 }
 
 footer h1{
@@ -185,4 +180,79 @@ footer p{
     display: flex;
     gap: 50px;
     margin-right: 50px;
+}
+
+/* ========================================= */
+/* ===== KODE RESPONSIVE UNTUK MOBILE ===== */
+/* ========================================= */
+
+/* Terapkan ini jika layar 992px atau lebih kecil */
+@media (max-width: 992px) {
+
+    /* 1. PERBAIKAN NAVBAR (MASALAH UTAMA) */
+
+    /* Membuat navbar tidak 'fixed' di mobile */
+    .navbar {
+        position: static; /* Tidak lagi 'fixed' di atas */
+        flex-wrap: wrap; /* Izinkan link untuk turun ke baris baru */
+        justify-content: center; /* Pusatkan item navbar */
+    }
+
+    /* Izinkan teks link untuk 'wrap' jika terlalu panjang */
+    .navbar-left a {
+        white-space: normal; 
+    }
+
+    .navbar-left img {
+        padding-top: 0;
+        margin-right: 10px;
+    }
+
+    /* Hapus padding atas di body, karena navbar sudah tidak 'fixed' */
+    body {
+        padding-top: 0;
+    }
+
+    .navbar-right {
+        padding-right: 10px;
+    }
+
+
+    /* 2. PERBAIKAN HALAMAN BERANDA (HOMEPAGE) */
+
+    /* Bagian "Welcome" (Gambar dan Teks) */
+    .Welcome {
+        flex-direction: column; /* Susun ke bawah (teks di atas, gambar di bawah) */
+        align-items: center;
+    }
+    .Welcome h1 {
+        font-size: 40px; /* Perkecil font */
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .Welcome img {
+        width: 100%; /* Buat gambar jadi 100% lebar */
+    }
+
+    /* Bagian "Content" */
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .content h2 {
+        font-size: 30px;
+    }
+
+    /* Bagian "Berita" (Kartu Berita) */
+    .card-container {
+        flex-direction: column; /* Susun kartu berita ke bawah */
+        padding: 20px;
+        gap: 20px;
+    }
+    .Berita h1, .garis {
+        padding-left: 20px;
+        margin-left: 0;
+        margin-right: 20px;
+    }
+
 }

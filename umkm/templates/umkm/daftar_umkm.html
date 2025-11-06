@@ -2,13 +2,14 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/katalog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/katalog.css' %}?v=1.1">
 {% endblock %}
 
 {% block title %}Direktori UMKM{% endblock %}
 
 {% block content %}
-<div class="main-content">
+<div class="katalog-wrapper">
+    
     <div class="page-title-container">
         <h1>Direktori UMKM Desa</h1>
     </div>
@@ -22,14 +23,13 @@
         </form>
     </div>
     
-    <div style="margin-bottom: 30px; text-align: right;">
-        <a href="{% url 'pendaftaran_umkm' %}" class="btn btn-success" style="padding: 15px 25px; background-color: darkgreen; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+    <div style="margin-left: 40px; text-align: left;">
+        <a href="{% url 'pendaftaran_umkm' %}" style="padding: 15px 25px; background-color: darkgreen; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
             + Daftarkan Usaha Anda
         </a>
     </div>
 
     <div class="katalog-grid">
-
         {% for umkm in semua_umkm %}
         <a href="{% url 'umkm_detail' pk=umkm.pk %}" class="katalog-card">
             <img src="{{ umkm.foto_utama.url }}" alt="{{ umkm.nama_usaha }}" class="katalog-card-img">
@@ -46,7 +46,6 @@
         {% empty %}
         <p>Tidak ada UMKM yang ditemukan.</p>
         {% endfor %}
-        
     </div>
 </div>
 {% endblock %}
