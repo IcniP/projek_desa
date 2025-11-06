@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'berita',
     'umkm',
     'profil',
@@ -129,3 +130,43 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+JAZZMIN_SETTINGS = {
+    # Judul yang muncul di tab browser
+    "site_title": "Admin Desa",
+
+    # Teks header utama
+    "site_header": "Way Halim Permai",
+
+    # Teks brand (biasanya nama proyek)
+    "site_brand": "Panel Admin",
+
+    # Path ke logo Anda (relatif terhadap folder 'static')
+    # Kita akan gunakan logo yang sama dengan navbar
+    "site_logo": "assets/windrises.jpg",
+
+    # Tampilkan aplikasi Anda di urutan teratas
+    "topmenu_links": [
+        {"name": "Website Publik", "url": "/", "new_window": True},
+    ],
+
+    # Mengatur urutan menu sidebar
+    "order_with_respect_to": ["profil", "berita", "umkm", "auth"],
+
+    # Ikon kustom untuk setiap model (menggunakan Lucide icons)
+    "icons": {
+        "auth.User": "icon-users",
+        "auth.Group": "icon-lock",
+        "profil.Profil": "icon-info",
+        "profil.StrukturOrganisasi": "icon-sitemap",
+        "profil.LingkunganRT": "icon-home",
+        "profil.Galeri": "icon-image",
+        "berita.Berita": "icon-newspaper",
+        "umkm.UMKM": "icon-shopping-bag",
+        "umkm.Produk": "icon-package",
+        "umkm.FotoUMKM": "icon-image-plus",
+    },
+
+    # Menyembunyikan model default yang tidak perlu
+    "hide_models": ["auth.group"],
+}
