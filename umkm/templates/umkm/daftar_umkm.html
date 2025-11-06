@@ -1,28 +1,51 @@
 {% extends 'profil/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/katalog.css' %}?v=1.1">
+{% endblock %}
+
+{% block title %}Direktori UMKM{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">Direktori UMKM Desa</h1>
-    <div class="row">
-        {% for umkm in semua_umkm %}
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <img src="{{ umkm.foto_produk.url }}" class="card-img-top" alt="{{ umkm.nama_usaha }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ umkm.nama_usaha }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Pemilik: {{ umkm.nama_pemilik }}</h6>
-                        <p class="card-text">{{ umkm.deskripsi }}</p>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="katalog-wrapper">
+    
+    <div class="page-title-container">
         <h1>Direktori UMKM Desa</h1>
-        <a href="{% url 'pendaftaran_umkm' %}" class="btn btn-success">Daftarkan Usaha Anda</a>
     </div>
 
-    <div class="row">
-        {% for umkm in semua_umkm %}
-            {% endfor %}
+    <div class="search-container">
+        <form class="search-form" method="GET" action="{% url 'daftar_umkm' %}">
+            <input type="text" name="q" class="search-bar" 
+                   placeholder="Cari nama toko atau nama produk..." 
+                   value="{{ query|default:'' }}">
+            <button type="submit" class="search-button">Cari</button>
+        </form>
     </div>
+    
+    <div style="margin-left: 40px; text-align: left;">
+        <a href="{% url 'pendaftaran_umkm' %}" style="padding: 15px 25px; background-color: darkgreen; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+            + Daftarkan Usaha Anda
+        </a>
+    </div>
+
+    <div class="katalog-grid">
+        {% for umkm in semua_umkm %}
+        <a href="{% url 'umkm_detail' pk=umkm.pk %}" class="katalog-card">
+            <img src="{{ umkm.foto_utama.url }}" alt="{{ umkm.nama_usaha }}" class="katalog-card-img">
+            <div class="katalog-card-content">
+                <h3 class="katalog-card-title">{{ umkm.nama_usaha }}</h3>
+                <span class="katalog-card-meta">
+                    Oleh: {{ umkm.nama_pemilik }}
+                </span>
+                {% if umkm.lokasi %}
+                <p class="katalog-card-location">📍 {{ umkm.lokasi }}</p>
+                {% endif %}
+            </div>
+        </a>
+        {% empty %}
+        <p>Tidak ada UMKM yang ditemukan.</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

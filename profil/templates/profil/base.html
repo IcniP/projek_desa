@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Way Halim Permai{% endblock %}</title>
 
-    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}?v=1.1" />
 
     {% block extra_css %}{% endblock %}
 
@@ -31,7 +31,7 @@
                         <a href="{% url 'daftar_rt' %}">Lingkungan & RT</a>
                     </div>
                 </div>
-                <a href="#">Berita</a> <a href="{% url 'galeri' %}">galeri</a>
+                <a href="{% url 'berita_terbaru' %}">Berita</a> <a href="{% url 'galeri' %}">galeri</a>
                 <a href="{% url 'daftar_umkm' %}">Umkm</a>
                 <a href="{% url 'hubungi_kami' %}">Hubungi Kami</a>
             </div>
@@ -54,8 +54,11 @@
             </p>
         </div>
         <div class="logo-container">
-            <a href="https://instagram.com">... (kode SVG) ...</a>
-            <a href="#">... (kode SVG) ...</a>
+            <a href="https://instagram.com">
+                <img src="{% static 'assets/instagram.svg' %}" alt="Logo instagram">
+            </a>
+            <a href="https://facebook.com">
+                <img src="{% static 'assets/facebook.svg' %}" alt="Logo facebook"></a>
         </div>
     </footer>
 

@@ -1,0 +1,116 @@
+
+.page-title-container {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid brown; 
+}
+.page-title-container h1 {
+    font-size: 2.5em;
+    color: brown;
+    margin: 0;
+    padding-left: 40px;
+}
+
+.search-container { 
+    margin-bottom: 30px;
+    max-width: 350px; 
+    width: 100%;
+    padding-left: 40px;
+}
+.search-form { display: flex; width: 100%; }
+.search-bar {
+    flex-grow: 1; padding: 15px; font-size: 1.1em;
+    border: 2px solid #ccc; border-radius: 8px 0 0 8px;
+}
+.search-button {
+    padding: 15px 30px; font-size: 1.1em; background-color: brown;
+    color: white; border: none; cursor: pointer; border-radius: 0 8px 8px 0;
+}
+
+.katalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.katalog-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s ease-in-out;
+}
+.katalog-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.katalog-card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.katalog-card-content {
+    padding: 15px;
+}
+.katalog-card-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.katalog-card-meta {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+    display: block;
+}
+.katalog-card-location {
+    font-size: 0.9em;
+    color: #555;
+    font-weight: 500;
+}
+
+/* ========================================= */
+/* ===== KODE RESPONSIVE UNTUK KATALOG ===== */
+/* ========================================= */
+
+/* Terapkan ini jika layar 768px atau lebih kecil */
+@media (max-width: 768px) {
+
+    /* Perbaiki class apa pun yang Anda gunakan 
+     (baik .katalog-wrapper ATAU .main-content)
+     Ini akan mengurangi padding di HP
+    */
+    .katalog-wrapper,
+    .main-content {
+        padding: 20px; /* Kurangi padding dari 40px */
+        margin: 10px auto;
+    }
+
+    /* Perkecil judul halaman */
+    .page-title-container h1 {
+        font-size: 1.8em;
+        padding-left: 0; /* Hapus padding-left di judul */
+    }
+
+    /* Buat search bar jadi 100% lebar di HP 
+     (menghapus max-width: 350px)
+    */
+    .search-container {
+        max-width: 100%;
+        padding-left: 0; /* Hapus padding-left di search bar */
+    }
+
+    /* Perkecil grid di HP (opsional, tapi bagus) */
+    .katalog-grid {
+        /* Hapus padding, karena kontainer utama sudah punya */
+        padding: 0; 
+        /* Ubah grid agar lebih pas di HP */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}

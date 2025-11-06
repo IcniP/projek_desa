@@ -1,0 +1,71 @@
+{% extends 'profil/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/berita_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/katalog.css' %}">
+{% endblock %}
+
+{% block title %}{{ umkm.nama_usaha }}{% endblock %}
+
+{% block content %}
+<div class="berita-container"> <div class="main-article">
+        <img src="{{ umkm.foto_utama.url }}" alt="{{ umkm.nama_usaha }}" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;">
+
+        <h1>{{ umkm.nama_usaha }}</h1>
+        <p style="font-size: 1.2em; color: #555;">Oleh: {{ umkm.nama_pemilik }}</p>
+
+        <div class="article-content">
+            <h3>Deskripsi Usaha</h3>
+            <p>{{ umkm.deskripsi|linebreaks }}</p>
+        </div>
+
+        <hr style="margin: 30px 0;">
+
+        <div class="list-produk">
+            <h3>Produk yang Dijual</h3>
+            <ul style="list-style-type: disc; padding-left: 20px;">
+                {% for produk in produk_list %}
+                <li style="margin-bottom: 10px;">
+                    <strong>{{ produk.nama_produk }}</strong>
+                    {% if produk.deskripsi_produk %}
+                    <p style="margin: 0;">{{ produk.deskripsi_produk }}</p>
+                    {% endif %}
+                </li>
+                {% empty %}
+                <li>Pemilik belum mendaftarkan produk.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    <aside class="sidebar">
+        <h3>Info Kontak & Lokasi</h3>
+        <ul class="sidebar-list">
+            {% if umkm.lokasi %}
+            <li><strong>Lokasi:</strong> {{ umkm.lokasi }}</li>
+            {% endif %}
+            {% if umkm.kontak_telepon %}
+            <li><strong>Telepon/WA:</strong> {{ umkm.kontak_telepon }}</li>
+            {% endif %}
+            {% if umkm.kontak_instagram %}
+            <li><strong>Instagram:</strong> {{ umkm.kontak_instagram }}</li>
+            {% endif %}
+            {% if umkm.link_ecommerce %}
+            <li><a href="{{ umkm.link_ecommerce }}" target="_blank" style="background-color: brown; color: white; padding: 10px; display: block; text-align: center; border-radius: 5px;">Kunjungi Toko Online</a></li>
+            {% endif %}
+        </ul>
+
+        <h3 style="margin-top: 30px;">Galeri Foto Usaha</h3>
+        <div class="katalog-grid" style="grid-template-columns: 1fr; gap: 10px;">
+            {% for foto in foto_gallery %}
+            <img src="{{ foto.foto.url }}" alt="{{ foto.keterangan }}" style="width: 100%; border-radius: 5px;">
+            {% empty %}
+            <p>Belum ada foto galeri.</p>
+            {% endfor %}
+        </div>
+    </aside>
+
+</div>
+{% endblock %}
