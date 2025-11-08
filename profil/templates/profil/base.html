@@ -22,15 +22,7 @@
                 </a>
 
                 <a href="{% url 'homepage' %}">beranda</a>
-                <div class="dropdown">
-                    <a href="#" class="dropbtn">profil desa</a>
-                    <div class="dropdown-content">
-                        <a href="{% url 'detail_profil' pk=1 %}">Tentang Kami</a>
-                        <a href="{% url 'detail_profil' pk=2 %}">Pelayanan</a>
-                        <a href="{% url 'struktur_organisasi' %}">Struktur Organisasi</a>
-                        <a href="{% url 'daftar_rt' %}">Lingkungan & RT</a>
-                    </div>
-                </div>
+                <a href="{% url 'profil_lengkap' %}">profil desa</a>
                 <a href="{% url 'berita_terbaru' %}">Berita</a> <a href="{% url 'galeri' %}">galeri</a>
                 <a href="{% url 'daftar_umkm' %}">Umkm</a>
                 <a href="{% url 'hubungi_kami' %}">Hubungi Kami</a>
