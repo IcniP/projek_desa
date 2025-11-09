@@ -1,8 +1,10 @@
 # profil/admin.py
-
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Profil, StrukturOrganisasi, LingkunganRT, Galeri
+from .models import (
+    Profil, StrukturOrganisasi, LingkunganRT, Galeri,
+    KategoriLayanan, Layanan  # <-- Impor model baru
+)
 
 @admin.register(Profil)
 class ProfilAdmin(admin.ModelAdmin):
@@ -13,7 +15,7 @@ class ProfilAdmin(admin.ModelAdmin):
 class StrukturOrganisasiAdmin(admin.ModelAdmin):
     list_display = ('nama', 'jabatan', 'nip', 'tampilkan_foto')
     search_fields = ('nama', 'jabatan', 'nip')
-    
+
     def tampilkan_foto(self, obj):
         if obj.foto:
             return format_html(
@@ -35,7 +37,7 @@ class LingkunganRTAdmin(admin.ModelAdmin):
 class GaleriAdmin(admin.ModelAdmin):
     list_display = ('keterangan', 'tampilkan_gambar')
     search_fields = ('keterangan',)
-    
+
     def tampilkan_gambar(self, obj):
         if obj.gambar:
             return format_html(
@@ -46,3 +48,15 @@ class GaleriAdmin(admin.ModelAdmin):
             )
         return "Tidak Ada Foto"
     tampilkan_gambar.short_description = 'Gambar'
+
+# ===== ADMIN BARU UNTUK LAYANAN =====
+
+@admin.register(KategoriLayanan)
+class KategoriLayananAdmin(admin.ModelAdmin):
+    list_display = ('nama_kategori',)
+
+@admin.register(Layanan)
+class LayananAdmin(admin.ModelAdmin):
+    list_display = ('nama_layanan', 'kategori')
+    list_filter = ('kategori',)
+    search_fields = ('nama_layanan',)

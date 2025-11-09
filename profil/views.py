@@ -1,6 +1,6 @@
 # profil/views.py
 from django.shortcuts import render, get_object_or_404
-from .models import Profil, StrukturOrganisasi, LingkunganRT, Galeri
+from .models import Profil, StrukturOrganisasi, LingkunganRT, Galeri , KategoriLayanan, Layanan
 from berita.models import Berita
 from django.db.models import Q
 
@@ -9,30 +9,39 @@ def index(request):
     context = {'berita_terbaru': berita_terbaru}
     return render(request, 'profil/index.html', context)
 
-# ===== INI FUNGSI YANG KITA PAKAI =====
 def halaman_profil_lengkap(request):
     try:
         tentang_kami = Profil.objects.get(judul__icontains="Tentang Kami")
     except Profil.DoesNotExist:
         tentang_kami = None
-    try:
-        pelayanan = Profil.objects.get(judul__icontains="Pelayanan")
-    except Profil.DoesNotExist:
-        pelayanan = None
-
+    semua_kategori = KategoriLayanan.objects.all()
     semua_pejabat = StrukturOrganisasi.objects.all()
+
     semua_rt = LingkunganRT.objects.all()
 
     context = {
         'tentang_kami': tentang_kami,
-        'pelayanan': pelayanan,
+        'semua_kategori': semua_kategori, 
         'semua_pejabat': semua_pejabat,
         'semua_rt': semua_rt,
     }
-    return render(request, 'profil/halaman_profil_lengkap.html', context)
-# ===== AKHIR FUNGSI PROFIL LENGKAP =====
 
-# Sisa views lainnya (tetap ada)
+    return render(request, 'profil/halaman_profil_lengkap.html', context)
+
+def layanan_detail(request, kategori_id):
+    # 1. Ambil kategori yang diklik (misal: "Administrasi")
+    kategori = get_object_or_404(KategoriLayanan, pk=kategori_id)
+
+    # 2. Ambil semua layanan yang terkait dengan kategori itu
+    daftar_layanan = Layanan.objects.filter(kategori=kategori)
+
+    context = {
+        'kategori': kategori,
+        'daftar_layanan': daftar_layanan,
+    }
+    # 3. Kirim data ke template BARU
+    return render(request, 'profil/layanan_detail.html', context)
+
 def galeri(request):
     query = request.GET.get('q')
     semua_berita = Berita.objects.all()

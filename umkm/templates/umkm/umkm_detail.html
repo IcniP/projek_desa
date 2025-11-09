@@ -9,9 +9,12 @@
 {% block title %}{{ umkm.nama_usaha }}{% endblock %}
 
 {% block content %}
-<div class="berita-container"> <div class="main-article">
-        <img src="{{ umkm.foto_utama.url }}" alt="{{ umkm.nama_usaha }}" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;">
-
+<div class="berita-container"> 
+    <div class="main-article">
+        
+        <a href="{{ umkm.foto_utama.url }}" data-fancybox="gallery" data-caption="{{ umkm.nama_usaha }}">
+            <img src="{{ umkm.foto_utama.url }}" alt="{{ umkm.nama_usaha }}" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; cursor: pointer;">
+        </a>
         <h1>{{ umkm.nama_usaha }}</h1>
         <p style="font-size: 1.2em; color: #555;">Oleh: {{ umkm.nama_pemilik }}</p>
 
@@ -59,12 +62,15 @@
 
         <h3 style="margin-top: 30px;">Galeri Foto Usaha</h3>
         <div class="katalog-grid" style="grid-template-columns: 1fr; gap: 10px;">
+            
             {% for foto in foto_gallery %}
-            <img src="{{ foto.foto.url }}" alt="{{ foto.keterangan }}" style="width: 100%; border-radius: 5px;">
+            <a href="{{ foto.foto.url }}" data-fancybox="gallery" data-caption="{{ foto.keterangan|default_if_none:umkm.nama_usaha }}">
+                <img src="{{ foto.foto.url }}" alt="{{ foto.keterangan }}" style="width: 100%; border-radius: 5px; cursor: pointer;">
+            </a>
             {% empty %}
             <p>Belum ada foto galeri.</p>
             {% endfor %}
-        </div>
+            </div>
     </aside>
 
 </div>
