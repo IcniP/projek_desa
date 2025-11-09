@@ -1,38 +1,33 @@
-/* Styling Konten Utama (Tabel Lingkungan) */
+/* static/css/daftarlingkungan.css */
 
-/* Background dan teks utama */
 body {
-    
-    padding-top: 100px; /* DIUBAH DARI 60px MENJADI 100px */
-    background-color: #F8F8F8; 
+    padding-top: 100px;
+    background-color: var(--warna-latar); /* VARIABEL */
     font-family: 'OpenSans', Calibri, sans-serif;
 }
-
 
 .main-content {
     padding: 40px; 
     max-width: 1200px; 
     margin: 20px auto; 
-    background-color: #efebeb;
+    background-color: var(--warna-latar); /* VARIABEL */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
 }
 
-
 .page-title-container {
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 2px solid brown; 
+    border-bottom: 2px solid var(--warna-aksen); /* VARIABEL */
 }
 
 h1 {
     font-size: 2.5em;
-    color: brown; /* Judul warna cokelat (sama dengan navbar) */
+    color: var(--warna-utama); /* VARIABEL */
     margin: 0;
     font-weight: bold;
 }
 
-/* --- Table Styling (Menggunakan palet brown and white) --- */
 .table-container {
     overflow-x: auto;
     padding: 20px;
@@ -47,43 +42,38 @@ table {
 }
 
 thead th {
-    background-color: brown; /* Header tabel cokelat (sama dengan navbar) */
-    color: white; 
+    background-color: var(--warna-utama); /* VARIABEL */
+    color: var(--warna-putih); 
     text-align: left;
     padding: 15px 20px;
-    font-weight: 600; /* Mengikuti font weight navbar */
-    border-bottom: 2px solid #A0522D; /* Aksen cokelat sedang */
+    font-weight: 600;
+    border-bottom: 2px solid var(--warna-aksen); /* VARIABEL */
 }
 
 tbody td {
     padding: 15px 20px;
-    border-bottom: 1px solid #E0E0E0; /* Garis pemisah abu-abu terang */
-    color: #333333;
+    border-bottom: 1px solid #E0E0E0;
+    color: var(--warna-teks);
 }
 
 tbody tr:nth-child(even) {
-    background-color: #F8F8F8; /* Warna latar sel genap putih lembut */
+    background-color: var(--warna-putih); /* VARIABEL */
 }
 
-/* Efek Hover di Baris Tabel */
 tbody tr:hover {
-    background-color: #f0e6da; /* Sedikit highlight cokelat muda saat hover */
+    background-color: var(--warna-kartu); /* VARIABEL */
     cursor: pointer;
 }
 
-/* Menyesuaikan Padding di Media Kecil */
 @media (max-width: 768px) {
     .main-content {
         padding: 20px;
         margin: 10px auto;
     }
-
     h1 {
         font-size: 1.8em;
     }
-    
-    /* Atur padding body lagi untuk mobile navbar (jika navbar-nya berubah) */
     body {
-        padding-top: 100px; /* Nilai perkiraan, sesuaikan jika navbar bertambah tinggi di mobile */
+        padding-top: 100px;
     }
 }
