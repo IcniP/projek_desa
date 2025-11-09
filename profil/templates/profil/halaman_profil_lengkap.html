@@ -5,50 +5,61 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/daftarlingkungan.css' %}?v=1.0">
+    
+    <style>
+        .profil-section {
+            /* DIUBAH DARI --warna-kartu MENJADI PUTIH */
+            background-color: var(--warna-putih); 
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .profil-section h1 {
+            color: var(--warna-utama);
+            font-size: 2.5em; 
+            border-bottom: 2px solid var(--warna-aksen);
+            padding-bottom: 15px;
+        }
+        .profil-section p {
+            font-size: 1.1em; 
+            line-height: 1.7;
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
-<div class="main-content" style="background-color: #fff; margin-bottom: 30px;">
+<div class="profil-section">
     {% if tentang_kami %}
-        <h1 style="color: brown; font-size: 2.5em; border-bottom: 2px solid #eee; padding-bottom: 15px;">
-            {{ tentang_kami.judul }}
-        </h1>
-        <p style="font-size: 1.1em; line-height: 1.7;">
-            {{ tentang_kami.konten|linebreaks }}
-        </p>
+        <h1>{{ tentang_kami.judul }}</h1>
+        <p>{{ tentang_kami.konten|linebreaks }}</p>
     {% endif %}
 </div>
 
-<div class="main-content" style="background-color: #fff; margin-bottom: 30px;">
+<div class="profil-section">
     {% if pelayanan %}
-        <h1 style="color: brown; font-size: 2.5em; border-bottom: 2px solid #eee; padding-bottom: 15px;">
-            {{ pelayanan.judul }}
-        </h1>
-        <p style="font-size: 1.1em; line-height: 1.7;">
-            {{ pelayanan.konten|linebreaks }}
-        </p>
+        <h1>{{ pelayanan.judul }}</h1>
+        <p>{{ pelayanan.konten|linebreaks }}</p>
     {% endif %}
 </div>
 
-<div class="main-content" style="background-color: #fff; margin-bottom: 30px;">
-    <h1 style="color: brown; font-size: 2.5em; border-bottom: 2px solid #eee; padding-bottom: 15px;">
-        Struktur Organisasi
-    </h1>
-
+<div class="profil-section">
+    <h1>Struktur Organisasi</h1>
     <div class="struktur-organisasi-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; margin-top: 30px;">
         {% for pejabat in semua_pejabat %}
-        <div class="pejabat-card" style="display: flex; align-items: center; background-color: #fcfcfc; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        
+        <div class="pejabat-card" style="display: flex; align-items: center; background-color: var(--warna-putih); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            
             <div class="pejabat-foto" style="flex-shrink: 0; margin-right: 20px;">
                 {% if pejabat.foto %}
                     <img src="{{ pejabat.foto.url }}" alt="{{ pejabat.nama }}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
                 {% else %}
                     <div style="width: 100px; height: 100px; border-radius: 50%; background-color: #ccc; display: flex; align-items: center; justify-content: center; font-size: 4em; color: #fff;">
-                        <span class="icon-user"></span> 
+                        <span>...</span>
                     </div>
                 {% endif %}
             </div>
             <div class="pejabat-detail">
-                <h5 style="margin: 0 0 5px 0; color: brown; font-size: 1.3em;">{{ pejabat.nama }}</h5>
+                <h5 style="margin: 0 0 5px 0; color: var(--warna-utama); font-size: 1.3em;">{{ pejabat.nama }}</h5>
                 <p style="margin: 0; font-size: 1em; color: #555;">{{ pejabat.jabatan }}</p>
                 <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #777;">NIP: {{ pejabat.nip|default_if_none:"-" }}</p> 
             </div>
@@ -59,8 +70,8 @@
     </div>
 </div>
 
-<div class="main-content" style="background-color: #fff; margin-bottom: 30px;">
-    <div class="page-title-container" style="border-bottom: 2px solid #eee;">
+<div class="profil-section">
+    <div class="page-title-container" style="border-bottom: 2px solid var(--warna-aksen);">
         <h1>Daftar Lingkungan dan RT</h1>
     </div>
     <div class="table-container" style="border: none; padding: 0;">

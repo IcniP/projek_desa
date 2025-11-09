@@ -1,6 +1,15 @@
-@font-face {
+
+:root {
+    --warna-utama: #C21010; 
+    --warna-aksen: #E64848; 
+    --warna-latar: #FFFDE3; 
+    --warna-kartu: #CFE8A9;
+    --warna-teks: #333;
+    --warna-putih: #FFFDE3;
+  }
+  
+  @font-face {
     font-family: 'OpenSans';
-    /* Path relatif dari file CSS ke folder assets */
     src: url('../assets/OpenSans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -12,14 +21,15 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Ini adalah perbaikan agar judul tidak tertutup navbar */
     padding-top: 100px; 
+    background-color: var(--warna-putih); 
+    color: var(--warna-teks);
 }
 .main-content-wrapper {
     flex-grow: 1; 
 }
 .navbar{
-    background-color: brown;
+    background-color: var(--warna-utama);
     padding: 10px;
     font-size: 16px;
     display: flex;
@@ -34,20 +44,19 @@ body{
     display: flex;
     align-items: center;
 }
-
 .navbar-left a{
     text-transform: uppercase;
     font-weight: 600;
     text-decoration: none;
-    color:rgb(255, 255, 255);
+    color: var(--warna-putih);
     white-space: nowrap;
     padding-right: 20px;
 }
 .navbar-left a:hover{
-    color:rgb(149, 124, 124);
+    color: var(--warna-aksen);
 }
 .navbar-right a:hover{
-    color: rgb(149, 124, 124);
+    color: var(--warna-aksen);
 }
 .navbar-left img{
     padding-top: 10px;
@@ -65,23 +74,22 @@ body{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: brown;
+    background-color: var(--warna-utama);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 .dropdown-content a:hover{
-    color: rgb(149, 124, 124);
+    color: var(--warna-aksen);
 }
 .dropdown:hover .dropdown-content{
     display: block;
 }
-
 .navbar-right a{
     text-transform: uppercase;
     font-weight: 600;
     text-decoration: none;
-    color:rgb(255, 255, 255);
+    color: var(--warna-putih);
 }
 .navbar-right {
     padding-right: 50px;
@@ -92,7 +100,7 @@ body{
 .Welcome {
     display: flex;
     justify-content: space-between;
-    background-color: antiquewhite;
+    background-color: var(--warna-kartu);
 }
 .Welcome h1{
     font-size: 70px;
@@ -106,15 +114,14 @@ body{
     margin-top: 100px;
     margin-bottom: 100px;
     padding-left: 50%;
-    color: black;
-    background-color: white;
+    color: var(--warna-teks);
+    background-color: var(--warna-putih);
 }
 .content h2{
     font-size: 50px;
 }
 .content p{
     font-size: 24px;
-    
 }
 .Berita h1{
     padding-left: 50px;
@@ -123,51 +130,53 @@ body{
 }
 .garis{
     border: none;
-    border-top: 10px solid #222; 
+    border-top: 10px solid var(--warna-teks); 
     margin: 5px 50px 0 50px;
 }
+
 .card-container{
-    justify-content: space-between;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    
     gap: 30px; 
     padding: 50px;
-    background-color: white;
+    background-color: var(--warna-putih);
 }
 
 .card {
-    flex: 1;
-    background-color: whitesmoke;
+    background-color: var(--warna-putih);
     overflow: hidden;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, background-color 0.3s ease;
     display: block;
+    border-radius: 8px;
+    border: 1px solid #eee;
 }
 
+
 .card:hover {
-    background-color: rgb(230, 235, 240);
+    background-color: var(--warna-kartu);
     transform: scale(1.05);
 }
 .card img{
     width: 100%;
 }
-
 .card a{
     text-decoration: none;
 }
 .isiberita{
     padding-left: 20px;
-    color: #222;
+    color: var(--warna-teks);
 }
 footer{
     text-transform: uppercase;
-    background-color: brown;
-    color: white;
+    background-color: var(--warna-utama);
+    color: var(--warna-putih);
     padding: 20px;
     justify-content: space-between;
     display: flex;
     width: 100%;
-    box-sizing: border-box; /* Menambahkan ini untuk padding */
+    box-sizing: border-box;
 }
-
 footer h1{
     font-size: 16px;
     margin: 0px;
@@ -182,59 +191,37 @@ footer p{
     margin-right: 50px;
 }
 
-/* ========================================= */
-/* ===== KODE RESPONSIVE UNTUK MOBILE ===== */
-/* ========================================= */
-
-/* Terapkan ini jika layar 992px atau lebih kecil */
 @media (max-width: 992px) {
-
-    /* 1. PERBAIKAN NAVBAR (MASALAH UTAMA) */
-
-    /* Membuat navbar tidak 'fixed' di mobile */
     .navbar {
-        position: static; /* Tidak lagi 'fixed' di atas */
-        flex-wrap: wrap; /* Izinkan link untuk turun ke baris baru */
-        justify-content: center; /* Pusatkan item navbar */
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
-    /* Izinkan teks link untuk 'wrap' jika terlalu panjang */
     .navbar-left a {
         white-space: normal; 
     }
-
     .navbar-left img {
         padding-top: 0;
         margin-right: 10px;
     }
-
-    /* Hapus padding atas di body, karena navbar sudah tidak 'fixed' */
     body {
         padding-top: 0;
     }
-
     .navbar-right {
         padding-right: 10px;
     }
-
-
-    /* 2. PERBAIKAN HALAMAN BERANDA (HOMEPAGE) */
-
-    /* Bagian "Welcome" (Gambar dan Teks) */
     .Welcome {
-        flex-direction: column; /* Susun ke bawah (teks di atas, gambar di bawah) */
+        flex-direction: column;
         align-items: center;
     }
     .Welcome h1 {
-        font-size: 40px; /* Perkecil font */
+        font-size: 40px;
         padding: 40px 20px;
         text-align: center;
     }
     .Welcome img {
-        width: 100%; /* Buat gambar jadi 100% lebar */
+        width: 100%;
     }
-
-    /* Bagian "Content" */
     .content {
         padding-left: 20px;
         padding-right: 20px;
@@ -242,17 +229,16 @@ footer p{
     .content h2 {
         font-size: 30px;
     }
-
-    /* Bagian "Berita" (Kartu Berita) */
+    
     .card-container {
-        flex-direction: column; /* Susun kartu berita ke bawah */
+        grid-template-columns: 1fr;
         padding: 20px;
         gap: 20px;
     }
+
     .Berita h1, .garis {
         padding-left: 20px;
         margin-left: 0;
         margin-right: 20px;
     }
-
 }
