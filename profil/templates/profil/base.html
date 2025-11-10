@@ -68,7 +68,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
     <script>
-      Fancybox.bind("[data-fancybox]", {}); // Inisialisasi FancyBox
+      Fancybox.bind("[data-fancybox]", {}); 
     </script>
     <script>
         AOS.init();
@@ -76,21 +76,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Dapatkan path URL saat ini
             const currentPath = window.location.pathname;
-
-            // 2. Dapatkan semua link di dalam .navbar-left
-            //    Ini HANYA akan memilih tag <a>, bukan tag <img>
             const navLinks = document.querySelectorAll('.navbar-left a');
-
-            // 3. Loop setiap link
             navLinks.forEach(link => {
-                // 4. Dapatkan path dari atribut href link
                 const linkPath = new URL(link.href).pathname;
-
-                // 5. Jika path link SAMA PERSIS dengan path halaman saat ini
                 if (linkPath === currentPath) {
-                    link.classList.add('active'); // Tambahkan kelas .active
+                    link.classList.add('active');
                 }
             });
         });

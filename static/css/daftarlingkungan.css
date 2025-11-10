@@ -1,8 +1,8 @@
-/* static/css/daftarlingkungan.css */
+
 
 body {
     padding-top: 100px;
-    background-color: var(--warna-latar); /* VARIABEL */
+    background-color: var(--warna-latar); 
     font-family: 'OpenSans', Calibri, sans-serif;
 }
 
@@ -10,7 +10,7 @@ body {
     padding: 40px; 
     max-width: 1200px; 
     margin: 20px auto; 
-    background-color: var(--warna-latar); /* VARIABEL */
+    background-color: var(--warna-latar); 
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
 }
@@ -18,12 +18,12 @@ body {
 .page-title-container {
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 2px solid var(--warna-aksen); /* VARIABEL */
+    border-bottom: 2px solid var(--warna-aksen); 
 }
 
 h1 {
     font-size: 2.5em;
-    color: var(--warna-utama); /* VARIABEL */
+    color: var(--warna-utama); 
     margin: 0;
     font-weight: bold;
 }
@@ -42,12 +42,12 @@ table {
 }
 
 thead th {
-    background-color: var(--warna-utama); /* VARIABEL */
+    background-color: var(--warna-utama); 
     color: var(--warna-putih); 
     text-align: left;
     padding: 15px 20px;
     font-weight: 600;
-    border-bottom: 2px solid var(--warna-aksen); /* VARIABEL */
+    border-bottom: 2px solid var(--warna-aksen); 
 }
 
 tbody td {
@@ -57,11 +57,11 @@ tbody td {
 }
 
 tbody tr:nth-child(even) {
-    background-color: var(--warna-putih); /* VARIABEL */
+    background-color: var(--warna-putih); 
 }
 
 tbody tr:hover {
-    background-color: var(--warna-kartu); /* VARIABEL */
+    background-color: var(--warna-kartu); 
     cursor: pointer;
 }
 

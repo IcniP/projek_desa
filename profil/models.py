@@ -49,7 +49,6 @@ class Galeri(models.Model):
     
 class KategoriLayanan(models.Model):
     nama_kategori = models.CharField(max_length=100)
-    # Kita pakai TextField untuk menyimpan kode SVG ikon
     icon_svg = models.TextField(blank=True, null=True, help_text="Tempelkan kode SVG ikon di sini")
 
     class Meta:

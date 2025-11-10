@@ -29,17 +29,13 @@ def halaman_profil_lengkap(request):
     return render(request, 'profil/halaman_profil_lengkap.html', context)
 
 def layanan_detail(request, kategori_id):
-    # 1. Ambil kategori yang diklik (misal: "Administrasi")
     kategori = get_object_or_404(KategoriLayanan, pk=kategori_id)
-
-    # 2. Ambil semua layanan yang terkait dengan kategori itu
     daftar_layanan = Layanan.objects.filter(kategori=kategori)
 
     context = {
         'kategori': kategori,
         'daftar_layanan': daftar_layanan,
     }
-    # 3. Kirim data ke template BARU
     return render(request, 'profil/layanan_detail.html', context)
 
 def galeri(request):
@@ -62,5 +58,4 @@ def galeri(request):
     return render(request, 'profil/galeri.html', context)
 
 def hubungi_kami(request):
-    # (Kita masih belum membuat template untuk ini)
     return render(request, 'profil/hubungi_kami.html')
