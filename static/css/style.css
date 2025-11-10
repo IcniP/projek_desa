@@ -161,13 +161,12 @@ div p {
 
 .Welcome {
     background-color: firebrick;
-    /* DIUBAH: 100px (asal) + 80px (navbar) = 180px padding-top */
     padding: 180px 0 100px 0; 
 }
 
 .welcome-content {
     display: flex;
-    flex-direction: column; /* DIUBAH: Menumpuk gambar dan teks */
+    flex-direction: column; 
     justify-content: center; 
     align-items: center;
     max-width: var(--lebar-konten-maksimal);
@@ -186,10 +185,9 @@ div p {
     font-size: 52px; 
 }
 
-/* DIUBAH: Mengganti 'display: none' menjadi style untuk siger */
 .welcome-content img{
     display: block;
-    width: 200px; /* Ukuran Siger */
+    width: 200px; 
     height: auto;
 }
 
@@ -213,18 +211,16 @@ div p {
     min-width: 50%; 
 }
 
-/* BARU: Style untuk wrapper judul (SVG + H1) */
 .content-title,
 .berita-title {
     display: flex;
     align-items: center;
-    gap: 15px; /* Jarak antara SVG dan H1 */
+    gap: 15px; 
 }
 
-/* BARU: Style untuk SVG di judul */
 .content-title img,
 .berita-title img {
-    width: 30px; /* Ukuran SVG dibuat lebih besar */
+    width: 30px; 
     height: 30px;
 }
 
@@ -257,12 +253,12 @@ div p {
 .Berita h1{
     padding-left: 0; 
     margin-bottom: 0px;
-    margin-top: 0; /* Menghapus margin default h1 */
+    margin-top: 0; 
 }
 .garis{
     border: none;
     border-top: 10px solid var(--warna-teks); 
-    margin: 15px 0 0 0; /* DIUBAH: Jarak dari title wrapper */
+    margin: 15px 0 0 0;
 }
 
 .card-container{
@@ -385,7 +381,6 @@ footer p{
         padding-right: 0; 
     }
 
-    /* DIUBAH: Padding-top untuk mobile tidak perlu 180px */
     .Welcome {
         padding: 40px 0; 
     }
@@ -399,7 +394,7 @@ footer p{
         font-size: 40px; 
     }
     .welcome-content img {
-        width: 300px; /* Ukuran siger di mobile */
+        width: 300px;
     }
 
     .content {
@@ -409,7 +404,6 @@ footer p{
     .content-text {
         text-align: center; 
     }
-    /* BARU: Pusatkan wrapper judul di mobile */
     .content-title,
     .berita-title {
         justify-content: center;

@@ -1,8 +1,6 @@
 /* Styling Umum */
 body {
-    /* Background Hitam Pekat */
     background-color: brown; 
-    /* Font Putih untuk Kontras Tinggi */
     color: black; 
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,20 +10,18 @@ body {
     min-height: 100vh;
 }
 
-/* Container Login di Tengah */
+
 .login-container {
     width: 90%;
-    max-width: 380px; /* Lebar Maksimal Mirip Contoh */
+    max-width: 380px; 
     padding: 40px;
     text-align: center;
-    /* Efek Glow/Border Tipis Putih (Opsional: untuk menonjolkan) */
     border: 1px solid rgba(255, 255, 255, 0.1); 
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: white;
-    border-radius: 8px; /* Sudut sedikit melengkung */
+    border-radius: 8px; 
 }
 
-/* Judul/Logo */
 h1 {
     font-size: 2.2em;
     margin-bottom: 40px;
@@ -33,7 +29,6 @@ h1 {
     letter-spacing: 2px;
 }
 
-/* Input Fields */
 .input-group {
     margin-bottom: 20px;
 }
@@ -42,29 +37,25 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 15px;
-    /* Background input gelap, text putih untuk kontras */
     background-color: rgb(222, 220, 220); 
     color: #fff;
-    border: 1px solid #333; /* Border tipis abu-abu */
+    border: 1px solid #333; 
     border-radius: 4px;
     font-size: 1.1em;
-    box-sizing: border-box; /* Penting agar padding tidak menambah lebar */
+    box-sizing: border-box; 
     transition: border-color 0.3s;
 }
 
-/* Efek saat input difokuskan */
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #fff; /* Border menjadi putih terang saat fokus */
-    outline: none; /* Hilangkan outline default browser */
+    border-color: #fff; 
+    outline: none; 
 }
 
-/* Tombol Login */
 .login-button {
     width: 100%;
     padding: 15px;
     margin-top: 10px;
-    /* Kontras: Warna cerah di atas background gelap */
     background-color: rgb(222, 220, 220); 
     color: #000;
     border: none;
@@ -76,12 +67,11 @@ input[type="password"]:focus {
     letter-spacing: 1px;
 }
 
-/* Efek Hover Tombol */
 .login-button:hover {
-    background-color: #ccc; /* Sedikit lebih gelap saat di-hover */
+    background-color: #ccc; 
 }
 
-/* Teks Lupa Password */
+
 .forgot-password {
     display: block;
     margin-top: 20px;
@@ -92,5 +82,5 @@ input[type="password"]:focus {
 }
 
 .forgot-password:hover {
-    color: #fff; /* Berubah menjadi putih saat di-hover */
+    color: #fff; 
 }

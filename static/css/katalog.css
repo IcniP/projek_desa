@@ -3,7 +3,7 @@
 .page-title-container {
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 2px solid var(--warna-aksen); /* VARIABEL */
+    border-bottom: 2px solid var(--warna-aksen);
 }
 .page-title-container h1 {
     font-size: 2.5em;
@@ -25,12 +25,12 @@
 }
 .search-button {
     padding: 15px 30px; font-size: 1.1em; 
-    background-color: var(--warna-utama); /* VARIABEL */
-    color: var(--warna-putih); /* VARIABEL */
+    background-color: var(--warna-utama); 
+    color: var(--warna-putih); 
     border: none; cursor: pointer; border-radius: 0 8px 8px 0;
 }
 .search-button:hover {
-    background-color: var(--warna-aksen); /* VARIABEL */
+    background-color: var(--warna-aksen); 
 }
 
 .katalog-grid {
@@ -105,7 +105,7 @@
 
 .btn-daftar {
     padding: 15px 25px; 
-    background-color: var(--warna-aksen); /* MENGGUNAKAN VARIABEL */
+    background-color: var(--warna-aksen);
     color: var(--warna-putih); 
     text-decoration: none; 
     border-radius: 8px; 
@@ -113,5 +113,5 @@
     transition: background-color 0.2s;
 }
 .btn-daftar:hover {
-    background-color: var(--warna-utama); /* MENGGUNAKAN VARIABEL */
+    background-color: var(--warna-utama); 
 }
