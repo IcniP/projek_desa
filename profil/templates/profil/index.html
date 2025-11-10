@@ -2,42 +2,56 @@
 {% load static %}
 
 {% block content %}
-<div class="Welcome">
-    <h1> Selamat Datang <br>
-        di Way Halim <br>
-        Permai 
-    </h1>
-    <img src="{% static 'assets/windrises.jpg' %}" alt="">
+<div class="Welcome" data-aos="fade-right">
+    <div class="welcome-content" data-aos="zoom-in">
+        <img src="{% static 'assets/siger.svg' %}" alt="siger">
+        <h1> Selamat Datang <br>
+            di Way Halim <br>
+            Permai 
+        </h1>
+    </div>
 </div>
-<div class="content">
-    <h2>Way Halim Permai</h2>
-    <p>
-        Kelurahan Way Halim Permai 
-        merupakan salah satu kelurahan yang 
-        berada di Kecamatan Way Halim, Kota Bandar Lampung...
-        (Isi konten statis Anda)
-    </p>
-</div>
-<div class="Berita">
-    <h1>
-        Berita 
-    </h1>
-    <hr class="garis">
 
-    <div class="card-container">
-        {% for berita in berita_terbaru %}
-        <div class="card">
-            <a href="{% url 'berita_detail' pk=berita.pk %}" class="card-link">
-                <img src="{{ berita.gambar.url }}" alt="{{ berita.judul }}">
-                <div class="isiberita">
-                    <h2>{{ berita.judul }}</h2>
-                    <p>{{ berita.isi|truncatewords:15 }}</p>
-                </div>
-            </a>
+<div class="content" data-aos="fade-left">
+    <div class="content-text">
+        <div class="content-title">
+            <img src="{% static 'assets/wayhalim.svg' %}" alt="WHP">
+            <h1>Way Halim Permai</h1>
         </div>
-        {% empty %}
-        <p style="color: black; padding-left: 50px;">Belum ada berita yang dipublikasikan.</p>
-        {% endfor %}
+        <p>
+            Kelurahan Way Halim Permai
+            merupakan salah satu kelurahan yang
+            berada di Kecamatan Way Halim, Kota Bandar Lampung...
+            (Isi konten statis Anda)
+        </p>
     </div>
+    
+    <img class="content-img" src="{% static 'assets/farihouse.png' %}" alt="Way Halim Permai">
+</div>
+
+<div class="Berita" data-aos="fade-up">
+    <div class="berita-content">
+        <div class="berita-title">
+            <img src="{% static 'assets/news.svg' %}" alt="news">
+            <h1>Berita</h1>
+        </div>
+        <hr class="garis">
+    
+        <div class="card-container">
+            {% for berita in berita_terbaru %}
+            <div class="card">
+                <a href="{% url 'berita_detail' pk=berita.pk %}" class="card-link">
+                    <img src="{{ berita.gambar.url }}" alt="{{ berita.judul }}">
+                    <div class="isiberita">
+                        <h2>{{ berita.judul }}</h2>
+                        <p>{{ berita.isi|truncatewords:15 }}</p>
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+            <p style="color: black; padding-left: 50px;">Belum ada berita yang dipublikasikan.</p>
+            {% endfor %}
+        </div>
     </div>
+</div>
 {% endblock %}

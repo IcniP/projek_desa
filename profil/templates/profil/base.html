@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Way Halim Permai{% endblock %}</title>
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
-
     <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}?v=1.1" />
 
     {% block extra_css %}{% endblock %}
@@ -17,48 +17,83 @@
 <body>
 
     <header>
-        <div class="navbar">
-            <div class="navbar-left">
-                <a href="{% url 'homepage' %}">
+        <div class="navbar" data-aos="fade-down">
+            <div class="navbar-content">
+                <div class="navbar-left">
                     <img src="{% static 'assets/logo.png' %}" alt="Logo">
-                </a>
-                <a href="{% url 'homepage' %}">beranda</a>
-                <a href="{% url 'profil_lengkap' %}">profil desa</a>
-                <a href="{% url 'berita_terbaru' %}">Berita</a> <a href="{% url 'galeri' %}">galeri</a>
-                <a href="{% url 'daftar_umkm' %}">Umkm</a>
-                <a href="{% url 'hubungi_kami' %}">Hubungi Kami</a>
+                    <a href="{% url 'homepage' %}">beranda</a>
+                    <a href="{% url 'profil_lengkap' %}">profil desa</a>
+                    <a href="{% url 'berita_terbaru' %}">Berita</a> <a href="{% url 'galeri' %}">galeri</a>
+                    <a href="{% url 'daftar_umkm' %}">Umkm</a>
+                    <a href="{% url 'hubungi_kami' %}">Hubungi Kami</a>
+                </div>
+                <div class="navbar-right">
+                    <a href="{% url 'admin:index' %}">login</a>
+                </div>
             </div>
-            <div class="navbar-right">
-                <a href="{% url 'admin:index' %}">login</a>
             </div>
-        </div>
     </header>
 
     {% block content %}
     {% endblock %}
 
     <footer>
-        <div class="text">
-            <h1>Kontak kami</h1>
-            <p>
-                +62 xxxx xxxx xxxx
-                <br>
-                © Way halim Permai 2025
-            </p>
+        <div class="footer-content">
+            <div class="text">
+                <h1>Kontak kami</h1>
+                <p class="contact-p">
+                    <img src="{% static 'assets/phone.svg' %}" class="contact-img">
+                    No. Telp: +62 xxxx xxxx xxxx
+                    <br>
+                    <img src="{% static 'assets/Email.svg' %}" class="contact-img">
+                    Email:
+                    <br>
+                    <img src="{% static 'assets/address.svg' %}" class="contact-img">
+                    Alamat: Jl. Way Halim Permai, Bandar Lampung
+                    <br>
+                    <br>
+                    © Way halim Permai 2025
+                </p>
+            </div>
+            <div class="logo-container">
+                <a href="https://instagram.com">
+                    <img src="{% static 'assets/instagram.svg' %}" alt="Logo instagram" class="sosmed-img">
+                </a>
+                <a href="https://facebook.com">
+                    <img src="{% static 'assets/tiktok.svg' %}" alt="Logo tiktok" class="sosmed-img"></a>
+            </div>
         </div>
-        <div class="logo-container">
-            <a href="https://instagram.com">
-                <img src="{% static 'assets/instagram.svg' %}" alt="Logo instagram">
-            </a>
-            <a href="https://facebook.com">
-                <img src="{% static 'assets/facebook.svg' %}" alt="Logo facebook"></a>
-        </div>
-    </footer>
+        </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
     <script>
       Fancybox.bind("[data-fancybox]", {}); // Inisialisasi FancyBox
     </script>
+    <script>
+        AOS.init();
+    </script>
 
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Dapatkan path URL saat ini
+            const currentPath = window.location.pathname;
+
+            // 2. Dapatkan semua link di dalam .navbar-left
+            //    Ini HANYA akan memilih tag <a>, bukan tag <img>
+            const navLinks = document.querySelectorAll('.navbar-left a');
+
+            // 3. Loop setiap link
+            navLinks.forEach(link => {
+                // 4. Dapatkan path dari atribut href link
+                const linkPath = new URL(link.href).pathname;
+
+                // 5. Jika path link SAMA PERSIS dengan path halaman saat ini
+                if (linkPath === currentPath) {
+                    link.classList.add('active'); // Tambahkan kelas .active
+                }
+            });
+        });
+    </script>
+    </body>
 </html>
