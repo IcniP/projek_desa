@@ -1,11 +1,12 @@
-
 :root {
-    --warna-utama: #C21010; 
-    --warna-aksen: #E64848; 
+    --warna-utama: rgb(134, 25, 25); 
+    --warna-aksen: #cfcfcf; 
     --warna-latar: #FFFDE3; 
-    --warna-kartu: #CFE8A9;
-    --warna-teks: #333;
-    --warna-putih: #FFFDE3;
+    --warna-kartu: #ffffff;
+    --warna-teks: crimson;
+    --warna-putih: #FFE7E9;
+    
+    --lebar-konten-maksimal: 1200px; 
   }
   
   @font-face {
@@ -21,18 +22,27 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 100px; 
+    padding-top: 0;
     background-color: var(--warna-putih); 
     color: var(--warna-teks);
 }
+
+h1 {
+    font-size: 36px;
+}
+
+div p {
+    color: #333;
+}
+
 .main-content-wrapper {
     flex-grow: 1; 
 }
 .navbar{
     background-color: var(--warna-utama);
-    padding: 10px;
-    font-size: 16px;
-    display: flex;
+    padding: 5px 10px; 
+    font-size: 12px;
+    display: flex; 
     justify-content: space-between;
     position: fixed;
     z-index: 1000;
@@ -40,29 +50,81 @@ body{
     top: 0;
     left: 0;
 }
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--lebar-konten-maksimal);
+    margin: 0 auto;
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+
 .navbar-left {
     display: flex;
     align-items: center;
 }
+
 .navbar-left a{
     text-transform: uppercase;
     font-weight: 600;
     text-decoration: none;
-    color: var(--warna-putih);
+    color: #b8b8b8;
     white-space: nowrap;
-    padding-right: 20px;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+
+    position: relative; 
+    padding-bottom: 5px; 
+    transition: color 0.3s ease-in-out; 
+    
+    margin-left: 5px; 
 }
+
 .navbar-left a:hover{
-    color: var(--warna-aksen);
+    color: var(--warna-putih);
 }
 .navbar-right a:hover{
-    color: var(--warna-aksen);
+    color: var(--warna-putih);
 }
 .navbar-left img{
-    padding-top: 10px;
-    width: 100px;
+    padding-top: 0;
+    width: 70px;
     margin-right: 20px;
 }
+
+.navbar-left a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: gold;
+    
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left; 
+    
+    border-radius: 2px; 
+}
+
+.navbar-left a:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar-left a.active {
+    color: #ffffff;
+}
+
+.navbar-left a.active::after {
+    transform: scaleX(1);
+}
+
 .dropdown{
     display: inline-block;
     position: relative;
@@ -89,106 +151,210 @@ body{
     text-transform: uppercase;
     font-weight: 600;
     text-decoration: none;
-    color: var(--warna-putih);
+    color: #b8b8b8;
 }
 .navbar-right {
-    padding-right: 50px;
+    padding-right: 0; 
     display: flex;
     align-items: center;
 }
 
 .Welcome {
+    background-color: firebrick;
+    /* DIUBAH: 100px (asal) + 80px (navbar) = 180px padding-top */
+    padding: 180px 0 100px 0; 
+}
+
+.welcome-content {
     display: flex;
-    justify-content: space-between;
-    background-color: var(--warna-kartu);
+    flex-direction: column; /* DIUBAH: Menumpuk gambar dan teks */
+    justify-content: center; 
+    align-items: center;
+    max-width: var(--lebar-konten-maksimal);
+    width: 100%;
+    margin: 0 auto;
+    margin-top: -50px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
+
 .Welcome h1{
-    font-size: 70px;
-    padding-top: 100px;
-    padding-left: 55px;
+    padding-top: 0; 
+    padding-left: 0;
+    color: var(--warna-putih); 
+    text-align: center; 
+    font-size: 52px; 
 }
-.Welcome img{
-    width: 50%;
+
+/* DIUBAH: Mengganti 'display: none' menjadi style untuk siger */
+.welcome-content img{
+    display: block;
+    width: 200px; /* Ukuran Siger */
+    height: auto;
 }
+
 .content{
-    margin-top: 100px;
-    margin-bottom: 100px;
-    padding-left: 50%;
     color: var(--warna-teks);
     background-color: var(--warna-putih);
+    max-width: var(--lebar-konten-maksimal);
+    width: 100%;
+    margin: 100px auto; 
+    padding: 0 20px; 
+    box-sizing: border-box;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px; 
 }
-.content h2{
-    font-size: 50px;
+
+.content-text {
+    flex: 1; 
+    min-width: 50%; 
 }
+
+/* BARU: Style untuk wrapper judul (SVG + H1) */
+.content-title,
+.berita-title {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antara SVG dan H1 */
+}
+
+/* BARU: Style untuk SVG di judul */
+.content-title img,
+.berita-title img {
+    width: 30px; /* Ukuran SVG dibuat lebih besar */
+    height: 30px;
+}
+
+
+.content-img {
+    flex-shrink: 0; 
+    width: 45%; 
+    max-width: 500px; 
+    height: auto; 
+    border-radius: 8px; 
+}
+
 .content p{
-    font-size: 24px;
+    font-size: 20px;
 }
+
+.Berita {
+    background-color: var(--warna-kartu); 
+    padding: 50px 0; 
+}
+
+.berita-content {
+    max-width: var(--lebar-konten-maksimal);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
 .Berita h1{
-    padding-left: 50px;
-    font-size: 50px;
+    padding-left: 0; 
     margin-bottom: 0px;
+    margin-top: 0; /* Menghapus margin default h1 */
 }
 .garis{
     border: none;
     border-top: 10px solid var(--warna-teks); 
-    margin: 5px 50px 0 50px;
+    margin: 15px 0 0 0; /* DIUBAH: Jarak dari title wrapper */
 }
 
 .card-container{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    
+    grid-template-columns: repeat(3, auto); 
     gap: 30px; 
-    padding: 50px;
-    background-color: var(--warna-putih);
+    padding: 50px 0 0 0; 
+    background-color: var(--warna-kartu); 
+    justify-content: center;
 }
 
 .card {
-    background-color: var(--warna-putih);
+    background-color: var(--warna-putih); 
     overflow: hidden;
-    transition: transform 0.5s ease-in-out, background-color 0.3s ease;
+    transition: transform 0.1s ease-in-out, background-color 0.3s ease;
     display: block;
     border-radius: 8px;
     border: 1px solid #eee;
+    width: 100%; 
+    max-width: 380px; 
 }
 
-
 .card:hover {
-    background-color: var(--warna-kartu);
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0 0px 10px #ffc107;
+
 }
 .card img{
     width: 100%;
+    height: 220px; 
+    object-fit: cover; 
 }
 .card a{
     text-decoration: none;
 }
 .isiberita{
     padding-left: 20px;
+    padding-bottom: 10px; 
     color: var(--warna-teks);
 }
 footer{
     text-transform: uppercase;
     background-color: var(--warna-utama);
     color: var(--warna-putih);
-    padding: 20px;
-    justify-content: space-between;
-    display: flex;
+    padding: 20px 0; 
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 -5px 20px rgba(220, 20, 60, 0.5);
+    z-index: 1;
 }
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--lebar-konten-maksimal);
+    margin: 0 auto;
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
 footer h1{
     font-size: 16px;
     margin: 0px;
 }
+
 footer p{
     margin: 10px 0 0 0;
     font-size: 14px;
 }
+
+.contact-img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.contact-p {
+    color: #ffffff;
+}
+
 .logo-container{
     display: flex;
     gap: 50px;
-    margin-right: 50px;
+    margin-right: 0; 
+}
+
+.sosmed-img{
+    width: 36px;
+    height: 36px;
 }
 
 @media (max-width: 992px) {
@@ -197,8 +363,16 @@ footer p{
         flex-wrap: wrap;
         justify-content: center;
     }
+    
+    .navbar-content, .footer-content, .welcome-content, .berita-content, .content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     .navbar-left a {
         white-space: normal; 
+        margin-left: 2px; 
+        margin-right: 2px;
     }
     .navbar-left img {
         padding-top: 0;
@@ -208,37 +382,56 @@ footer p{
         padding-top: 0;
     }
     .navbar-right {
-        padding-right: 10px;
+        padding-right: 0; 
     }
+
+    /* DIUBAH: Padding-top untuk mobile tidak perlu 180px */
     .Welcome {
+        padding: 40px 0; 
+    }
+    .welcome-content {
         flex-direction: column;
         align-items: center;
     }
     .Welcome h1 {
-        font-size: 40px;
-        padding: 40px 20px;
+        padding: 0 0 20px 0; 
         text-align: center;
+        font-size: 40px; 
     }
-    .Welcome img {
-        width: 100%;
+    .welcome-content img {
+        width: 300px; /* Ukuran siger di mobile */
     }
+
     .content {
-        padding-left: 20px;
-        padding-right: 20px;
+        flex-direction: column; 
+        margin: 40px auto;
     }
-    .content h2 {
-        font-size: 30px;
+    .content-text {
+        text-align: center; 
+    }
+    /* BARU: Pusatkan wrapper judul di mobile */
+    .content-title,
+    .berita-title {
+        justify-content: center;
+    }
+    
+    .content-img {
+        width: 100%; 
+        margin-top: 20px; 
     }
     
     .card-container {
         grid-template-columns: 1fr;
-        padding: 20px;
+        padding: 20px 0 0 0; 
         gap: 20px;
     }
 
+    .Berita {
+        padding: 30px 0;
+    }
     .Berita h1, .garis {
-        padding-left: 20px;
+        padding-left: 0; 
         margin-left: 0;
-        margin-right: 20px;
+        margin-right: 0;
     }
 }
