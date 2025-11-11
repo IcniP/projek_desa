@@ -2,15 +2,16 @@ Cara Menjalan Kan Website
 
 Pertama Install Semua dependencies
 
-npm install aos --save
-pip install Django
-pip install -U django-jazzmin
-pip install Pillow
-pip install django-import-export
-pip install pandas openpyxl
+npm install aos --save ,
+pip install Django ,
+pip install -U django-jazzmin ,
+pip install Pillow ,
+pip install django-import-export ,
+pip install pandas openpyxl ,
 
 kemudian buka Cmd / Cmd VsCode
 Paste 
+
 venv\Scripts\activate
 
 Setelah Venv Nyala Kemudian Paste
