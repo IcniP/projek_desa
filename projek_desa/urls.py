@@ -11,6 +11,7 @@ urlpatterns = [
     path('', include('profil.urls')),
     path('umkm/', include('umkm.urls')),
     path('berita/', include('berita.urls')),
+    path('statistik/', include('statistik.urls')),
 ]
 
 if settings.DEBUG:
