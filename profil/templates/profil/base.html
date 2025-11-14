@@ -16,22 +16,33 @@
 </head>
 <body>
 
-    <header>
+        <header>
         <div class="navbar" data-aos="fade-down">
             <div class="navbar-content">
                 <div class="navbar-left">
                     <img src="{% static 'assets/logo.png' %}" alt="Logo">
-                    <a href="{% url 'homepage' %}">beranda</a>
-                    <a href="{% url 'profil_lengkap' %}">profil desa</a>
-                    <a href="{% url 'berita_terbaru' %}">Berita</a> <a href="{% url 'galeri' %}">galeri</a>
-                    <a href="{% url 'daftar_umkm' %}">Umkm</a>
-                    <a href="{% url 'statistik:tampil_statistik' %}">Data Statistik</a>
-                </div>
+                    <div id="nav-links"> 
+                        <a href="{% url 'homepage' %}">beranda</a>
+                        <a href="{% url 'profil_lengkap' %}">profil desa</a>
+                        <a href="{% url 'berita_terbaru' %}">Berita</a> 
+                        <a href="{% url 'galeri' %}">galeri</a>
+                        <a href="{% url 'daftar_umkm' %}">Umkm</a>
+                        <a href="{% url 'statistik:tampil_statistik' %}">Data Statistik</a>
+                        <a href="{% url 'admin:index' %}" class="mobile-login-link">login</a> 
+                    </div>
+                    </div>
+                
                 <div class="navbar-right">
-                    <a href="{% url 'admin:index' %}">login</a>
+                    <a href="{% url 'admin:index' %}" class="desktop-login-link">login</a>
                 </div>
+                
+                <button class="hamburger-menu" id="menu-toggle" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
-            </div>
+        </div>
     </header>
 
     {% block content %}
@@ -83,6 +94,13 @@
                 if (linkPath === currentPath) {
                     link.classList.add('active');
                 }
+            });
+
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinksContainer = document.getElementById('nav-links'); 
+            menuToggle.addEventListener('click', function() {
+                navLinksContainer.classList.toggle('active-menu');
+                menuToggle.classList.toggle('is-active');
             });
         });
     </script>
