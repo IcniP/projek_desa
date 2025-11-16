@@ -20,10 +20,10 @@
 }
 
 .main-article img {
-    width: 100%;
+    max-width: 500px;
     height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    max-height: 400px;
+    object-fit: cover;
 }
 
 .article-content p {
@@ -33,10 +33,12 @@
 }
 
 .sidebar {
-    flex: 1;
     padding: 20px;
     background-color: var(--warna-kartu); 
     border-radius: 8px;
+    align-self: flex-start;
+    width: 280px;
+    flex-shrink: 0;
 }
 
 .sidebar h3 {
