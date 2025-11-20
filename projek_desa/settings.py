@@ -133,28 +133,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 JAZZMIN_SETTINGS = {
-    # Judul yang muncul di tab browser
     "site_title": "Admin Desa",
-
-    # Teks header utama
     "site_header": "Way Halim Permai",
-
-    # Teks brand (biasanya nama proyek)
     "site_brand": "Panel Admin",
-
-    # Path ke logo Anda (relatif terhadap folder 'static')
-    # Kita akan gunakan logo yang sama dengan navbar
-    "site_logo": "assets/windrises.jpg",
-
-    # Tampilkan aplikasi Anda di urutan teratas
+    "site_logo": "assets/admin.svg",
     "topmenu_links": [
         {"name": "Website Publik", "url": "/", "new_window": True},
     ],
-
-    # Mengatur urutan menu sidebar
     "order_with_respect_to": ["profil", "berita", "umkm", "auth"],
 
-    # Ikon kustom untuk setiap model (menggunakan Lucide icons)
     "icons": {
         "auth.User": "icon-users",
         "auth.Group": "icon-lock",
@@ -168,6 +155,5 @@ JAZZMIN_SETTINGS = {
         "umkm.FotoUMKM": "icon-image-plus",
     },
 
-    # Menyembunyikan model default yang tidak perlu
     "hide_models": ["auth.group"],
 }

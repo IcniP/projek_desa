@@ -49,7 +49,6 @@ class GaleriAdmin(admin.ModelAdmin):
         return "Tidak Ada Foto"
     tampilkan_gambar.short_description = 'Gambar'
 
-# ===== ADMIN BARU UNTUK LAYANAN =====
 
 @admin.register(KategoriLayanan)
 class KategoriLayananAdmin(admin.ModelAdmin):
